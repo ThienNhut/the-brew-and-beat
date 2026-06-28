@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --cream: #F5EDD8;
+  --espresso: #2C1A0E;
+  --mahogany: #5C2E0A;
+  --amber: #C17A2E;
+  --gold: #D4A847;
+  --vinyl: #1A1A1A;
+  --warm-gray: #8B7355;
+  --light-cream: #FAF6EE;
+  --accent-red: #B84444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--vinyl);
+  color: var(--cream);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--vinyl);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--amber);
+  border-radius: 3px;
+}
+
+/* Grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+/* Utility classes */
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(44, 26, 14, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 168, 71, 0.15);
+}
+
+/* Vinyl Record Animation */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* Retro texture */
+.retro-border {
+  border: 2px solid var(--amber);
+  position: relative;
+}
+
+.retro-border::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid rgba(212, 168, 71, 0.3);
+  pointer-events: none;
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 50%, var(--gold) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Card hover */
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--amber), var(--gold));
+  color: var(--espresso);
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.05em;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--gold), var(--amber));
+  box-shadow: 0 0 20px rgba(212, 168, 71, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Input styles */
+.input-field {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(212, 168, 71, 0.25);
+  border-radius: 4px;
+  color: var(--cream);
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--amber);
+  background: rgba(212, 168, 71, 0.08);
+}
+
+.input-field::placeholder {
+  color: var(--warm-gray);
+}
