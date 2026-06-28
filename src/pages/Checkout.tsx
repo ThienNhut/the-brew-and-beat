@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useCartStore } from '../store/cartStore';
 import { formatPrice } from '../data/products';
 import { CheckCircle, Package, ArrowLeft } from 'lucide-react';
