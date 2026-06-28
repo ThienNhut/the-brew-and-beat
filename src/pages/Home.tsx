@@ -254,6 +254,7 @@ const Home: React.FC = () => {
           <div
             style={{
               display: 'flex',
+              flexWrap: 'wrap',
               gap: '8px',
               background: 'rgba(44,26,14,0.6)',
               border: '1px solid rgba(212,168,71,0.15)',

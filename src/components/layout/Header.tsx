@@ -25,15 +25,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
       }}
     >
       <div
-        style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '0 24px',
-          height: '72px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
+        className="max-w-[1200px] mx-auto px-4 md:px-6 h-[72px] flex items-center justify-between"
       >
         {/* Logo */}
         <button
@@ -92,7 +84,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
         </button>
 
         {/* Nav */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+        <nav className="flex items-center gap-3 md:gap-8">
           {['home', 'checkout'].map((page) => (
             <button
               key={page}
